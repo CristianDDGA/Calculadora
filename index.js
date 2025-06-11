@@ -35,3 +35,18 @@ function toggleMenu() {
       historial.length = 0;
       mostrarHistorial();
   }
+
+  function toggleMenu() {
+  const menu = document.getElementById('menu');
+  menu.classList.toggle('hidden');
+}
+
+function mostrarIntegrantes() {
+  const box = document.getElementById('integrantes-container');
+  box.classList.toggle('hidden');
+}
+
+function scrollToHistorial() {
+  const historial = document.getElementById('historial-container');
+  historial.scrollIntoView({ behavior: 'smooth' });
+}
