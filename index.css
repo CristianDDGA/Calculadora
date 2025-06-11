@@ -71,8 +71,37 @@ button:focus {
     font-size: 2em;
 }
 
-header h1{
-    margin: 0; 
+
+header {
     text-align: center;
+    background-color: #006f54;
+    padding: 20px;
+    color: #fff;
+    font-size: 2em;
+    box-shadow: 0px 5px 10px -3px #00000040;
+}
+
+footer {
+    text-align: center;
+    background-color: #006f54;
+    padding: 15px;
+    color: #fff;
+    font-size: 1.2em;
+    position: fixed; /* Hace que el footer sea estático */
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0px -5px 10px -3px #00000040;
+    border-top: 2px solid #00916e;
+    z-index: 10; /* Asegura que el footer esté por encima de otros elementos */
+}
+
+footer ul {
+    list-style-type: none; /* Elimina los puntos del listado */
+    padding: 0;
+    margin: 0;
+}
+
+footer li {
+    margin: 5px 0; /* Espaciado entre los nombres */
 
 }
