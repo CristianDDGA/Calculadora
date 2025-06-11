@@ -31,6 +31,7 @@ class Display {
     computar(tipo) {
         if (tipo === 'igual') {
             this.calcular();
+            actualizarHistorial(`${this.valorAnterior} ${this.tipoOperacion} ${this.valorActual}`, this.valorActual);
             this.tipoOperacion = undefined;
             this.valorAnterior = '';
             this.imprimirValores();
