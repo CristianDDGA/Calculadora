@@ -11,6 +11,7 @@ class Display {
             dividir: '%',
             multiplicar: 'x',
             restar: '-', 
+            raizCuadrada: '√'
         }
     }
 
@@ -27,7 +28,13 @@ class Display {
     }
 
     computar(tipo) {
-        this.tipoOperacion !== 'igual' && this.calcular();
+        if (tipo === 'igual') {
+            this.calcular();
+            this.tipoOperacion = undefined;
+            this.valorAnterior = '';
+            this.imprimirValores();
+            return;
+        }
         this.tipoOperacion = tipo;
         this.valorAnterior = this.valorActual || this.valorAnterior;
         this.valorActual = '';
@@ -41,15 +48,23 @@ class Display {
     }
 
     imprimirValores() {
-        this.displayValorActual.textContent = this.valorActual;
-        this.displayValorAnterior.textContent = `${this.valorAnterior} ${this.signos[this.tipoOperacion] || ''}`;
+        // Muestra toda la operación en una sola línea
+        this.displayValorAnterior.textContent = `${this.valorAnterior} ${this.signos[this.tipoOperacion] || ''} ${this.valorActual}`.trim();
+        this.displayValorActual.textContent = '';
     }
 
     calcular() {
         const valorAnterior = parseFloat(this.valorAnterior);
         const valorActual = parseFloat(this.valorActual);
 
-        if( isNaN(valorActual)  || isNaN(valorAnterior) ) return
+        if (this.tipoOperacion === 'raizCuadrada') {
+            if (!isNaN(valorActual)) {
+                this.valorActual = this.calculador.raizCuadrada(valorActual);
+            }
+            return;
+        }
+
+        if (isNaN(valorActual) || isNaN(valorAnterior)) return;
         this.valorActual = this.calculador[this.tipoOperacion](valorAnterior, valorActual);
     }
 }
