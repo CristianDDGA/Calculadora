@@ -229,3 +229,55 @@ footer li {
     align-self: stretch;
     border-radius: 30px;
 }
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 50px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.historial-box {
+  width: 270px;
+  background-color: #00916e;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  color: #000;
+}
+
+.historial-box h4 {
+  text-align: center;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+#historial {
+  height: 300px;
+  overflow-y: auto;
+  background-color: rgb(186, 230, 176);
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-family: monospace;
+  font-size: 0.9em;
+}
+
+#historial-container button {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  background-color: #154717;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#historial-container button:hover {
+  background-color: #5de664;
+}
