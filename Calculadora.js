@@ -18,4 +18,8 @@ class Calculadora {
     raizCuadrada(num) {
         return Math.sqrt(num);
     }
+
+    potenciaCuadrado(num) {
+        return Math.pow(num, 2);
+    }
 }
