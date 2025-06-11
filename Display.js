@@ -11,7 +11,8 @@ class Display {
             dividir: '%',
             multiplicar: 'x',
             restar: '-', 
-            raizCuadrada: '√'
+            raizCuadrada: '√',
+            potenciaCuadrado: '^2'
         }
     }
 
@@ -54,16 +55,24 @@ class Display {
     }
 
     calcular() {
-        const valorAnterior = parseFloat(this.valorAnterior);
-        const valorActual = parseFloat(this.valorActual);
+        let valor = parseFloat(this.valorActual || this.valorAnterior);
 
         if (this.tipoOperacion === 'raizCuadrada') {
-            if (!isNaN(valorActual)) {
-                this.valorActual = this.calculador.raizCuadrada(valorActual);
+            if (!isNaN(valor)) {
+                this.valorActual = this.calculador.raizCuadrada(valor);
             }
             return;
         }
 
+        if (this.tipoOperacion === 'potenciaCuadrado') {
+            if (!isNaN(valor)) {
+                this.valorActual = this.calculador.potenciaCuadrado(valor);
+            }
+            return;
+        }
+
+        const valorAnterior = parseFloat(this.valorAnterior);
+        const valorActual = parseFloat(this.valorActual);
         if (isNaN(valorActual) || isNaN(valorAnterior)) return;
         this.valorActual = this.calculador[this.tipoOperacion](valorAnterior, valorActual);
     }
