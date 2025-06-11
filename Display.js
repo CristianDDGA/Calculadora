@@ -11,6 +11,7 @@ class Display {
             dividir: '%',
             multiplicar: 'x',
             restar: '-', 
+            raizCuadrada: '√'
         }
     }
 
@@ -27,6 +28,13 @@ class Display {
     }
 
     computar(tipo) {
+        if (tipo === 'raizCuadrada') {
+            if (this.valorActual !== '') {
+                this.valorActual = this.calculador.raizCuadrada(parseFloat(this.valorActual));
+                this.imprimirValores();
+            }
+            return;
+        }
         this.tipoOperacion !== 'igual' && this.calcular();
         this.tipoOperacion = tipo;
         this.valorAnterior = this.valorActual || this.valorAnterior;
@@ -48,6 +56,13 @@ class Display {
     calcular() {
         const valorAnterior = parseFloat(this.valorAnterior);
         const valorActual = parseFloat(this.valorActual);
+
+        if (this.tipoOperacion === 'raizCuadrada') {
+            if (!isNaN(valorActual)) {
+                this.valorActual = this.calculador.raizCuadrada(valorActual);
+            }
+            return;
+        }
 
         if( isNaN(valorActual)  || isNaN(valorAnterior) ) return
         this.valorActual = this.calculador[this.tipoOperacion](valorAnterior, valorActual);
