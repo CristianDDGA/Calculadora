@@ -17,3 +17,21 @@ function toggleMenu() {
     const menu = document.getElementById('menu');
     menu.classList.toggle('hidden');
 }
+
+  const historial = [];
+
+  function actualizarHistorial(operacion, resultado) {
+      const entrada = `${operacion} = ${resultado}`;
+      historial.push(entrada);
+      mostrarHistorial();
+  }
+
+  function mostrarHistorial() {
+      const historialDiv = document.getElementById("historial");
+      historialDiv.innerHTML = historial.map(item => `<div>${item}</div>`).join("");
+  }
+
+  function limpiarHistorial() {
+      historial.length = 0;
+      mostrarHistorial();
+  }
