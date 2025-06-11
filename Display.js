@@ -11,7 +11,8 @@ class Display {
             dividir: '%',
             multiplicar: 'x',
             restar: '-', 
-            raizCuadrada: '√'
+            raizCuadrada: '√',
+            potenciaCuadrado: '^2'
         }
     }
 
@@ -60,6 +61,13 @@ class Display {
         if (this.tipoOperacion === 'raizCuadrada') {
             if (!isNaN(valorActual)) {
                 this.valorActual = this.calculador.raizCuadrada(valorActual);
+            }
+            return;
+        }
+
+        if (this.tipoOperacion === 'potenciaCuadrado') {
+            if (!isNaN(valorActual)) {
+                this.valorActual = this.calculador.potenciaCuadrado(valorActual);
             }
             return;
         }
